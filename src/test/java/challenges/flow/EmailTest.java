@@ -25,7 +25,7 @@ public class EmailTest {
     EmailApp app = new EmailApp();
 
     Engine engine = new Engine(userAgent, adapters, app);
-    engine.run(); // correr o motor
+    engine.run(); 
     
     Assert.assertEquals("hello", app.popMessage());
   }

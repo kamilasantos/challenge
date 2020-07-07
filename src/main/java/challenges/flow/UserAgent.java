@@ -10,15 +10,13 @@ public class UserAgent implements IAgent {
   private String[] values;
 
   public UserAgent(String... values) {
-    this.values = values; // guardar todas as mensagens
+    this.values = values; 
   }
 
-  public List<IAction> act() { // Atuar : Transformar os valores em ações
+  public List<IAction> act() { 
     List<IAction> flow = new LinkedList<IAction>();
     for (String value : values) {
       flow.add(new UserAction(value));
-      // Para todos os valores, criar uma ação para cada um deles
-      // UserAction a Acção typo : Email
     }
     return flow;
   }

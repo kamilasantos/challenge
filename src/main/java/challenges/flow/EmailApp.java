@@ -13,9 +13,9 @@ public class EmailApp implements IApp<String> {
   }
 
   public String in(IEvent event) throws EventException, ProtocolException, ActionException {
-    String message = (String) event.trigger(); // recebo um evento
-    if(!message.startsWith("MSG:")) { // se o evento for do tipo email, está certo
-      throw new ProtocolException(); //senão manda exceção
+    String message = (String) event.trigger(); 
+    if(!message.startsWith("MSG:")) { 
+      throw new ProtocolException(); 
     }
     message = message.replace("MSG:", "");
     messages.add(message);
@@ -26,14 +26,4 @@ public class EmailApp implements IApp<String> {
     String message = messages.remove();
     return message;
   }
-
-  /**
-   * 
-    IAgent
-    IAction
-    IAdapter
-    IEvent
-    IApp
-   * 
-   */
 }
