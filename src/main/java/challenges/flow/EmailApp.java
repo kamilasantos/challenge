@@ -1,15 +1,9 @@
-package flow.samples;
+package challenges.flow;
 
-import flow.ActionException;
-import flow.EventException;
-import flow.IApp;
-import flow.IEvent;
+import flow.*;
 
-import java.net.ProtocolException;
 import java.util.LinkedList;
 import java.util.Queue;
-
-import javax.xml.bind.PropertyException;
 
 public class EmailApp implements IApp<String> {
   private Queue<String> messages;
@@ -18,10 +12,11 @@ public class EmailApp implements IApp<String> {
     this.messages = new LinkedList<String>();
   }
 
-  public String in(IEvent event) throws EventException, ActionException {
-    String message = (String) event.trigger(); 
-   
-    
+  public String in(IEvent event) throws EventException, ProtocolException, ActionException {
+    String message = (String) event.trigger(); // recebo um evento
+    if(!message.startsWith("MSG:")) { // se o evento for do tipo email, está certo
+      throw new ProtocolException(); //senão manda exceção
+    }
     message = message.replace("MSG:", "");
     messages.add(message);
     return message;
@@ -32,14 +27,13 @@ public class EmailApp implements IApp<String> {
     return message;
   }
 
+  /**
+   * 
+    IAgent
+    IAction
+    IAdapter
+    IEvent
+    IApp
+   * 
+   */
 }
-
-
-
-
-
-
-
-
-
-

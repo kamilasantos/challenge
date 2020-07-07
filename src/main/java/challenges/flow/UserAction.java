@@ -1,6 +1,4 @@
-package flow.samples;
-
-import challenges.flow;
+package challenges.flow;
 
 import flow.IAction;
 

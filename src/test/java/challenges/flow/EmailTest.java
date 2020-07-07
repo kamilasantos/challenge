@@ -15,7 +15,7 @@ public class EmailTest {
   @Test
   public void testRun_AdapterIsCompliantWithProtocol_AppHasHelloMessage() throws Exception {
   
-    IAgent messageria = new UserAgent( new String[] {
+    IAgent userAgent = new UserAgent( new String[] {
       "hello"
     });
 
@@ -24,8 +24,8 @@ public class EmailTest {
 
     EmailApp app = new EmailApp();
 
-    Engine engine = new Engine(messageria, adapters, app);
-    engine.run();
+    Engine engine = new Engine(userAgent, adapters, app);
+    engine.run(); // correr o motor
     
     Assert.assertEquals("hello", app.popMessage());
   }

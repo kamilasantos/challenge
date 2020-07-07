@@ -1,4 +1,4 @@
-package flow.samples;
+package challenges.flow;
 
 import flow.IEvent;
 
